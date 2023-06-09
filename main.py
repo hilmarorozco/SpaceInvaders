@@ -1,10 +1,14 @@
 import pygame, sys
+from player import Player
 
 class Game:
     def __init__(self):
-        pass
+		# Player setup
+        player_sprite = Player((screen_width/2,screen_height))
+        self.player = pygame.sprite.GroupSingle(player_sprite)
+    
     def run (self):
-        pass
+        self.player.draw(screen)
 
 
 if __name__ == '__main__':
@@ -22,6 +26,7 @@ if __name__ == '__main__':
                 sys.exit()
 
         screen.fill((30,30,30))
+        game.run()
 
         pygame.display.flip()
         clock.tick(60)
